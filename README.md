@@ -13,3 +13,10 @@ npm install
 ```
 npm start
 ```
+
+
+# server
+
+```
+npm run server
+```
