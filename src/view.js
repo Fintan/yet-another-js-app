@@ -48,7 +48,6 @@ const screens = {
         addListeners(){
             const moreBtn = this.parentEl.querySelector('#moreBtn');
             moreBtn.addEventListener('click', (e)=> {
-                e.preventDefault();
                 this.emitter.emit('FETCH_APPEND');
             })
         },
