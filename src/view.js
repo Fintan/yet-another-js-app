@@ -7,7 +7,6 @@ export default class View {
     constructor({ parentEl }) {
         this.emitter = new EventEmitter();
         this.parentEl = parentEl;
-        this.currentTemplate = searchTemplate;
         this.current = screens.search;
     }
 
