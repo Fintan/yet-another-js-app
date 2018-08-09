@@ -1,7 +1,8 @@
 import EventEmitter from 'eventemitter3';
 import './view.scss'; 
-import { litSearchTemplate, litListTemplate } from './templates';
-import {html, render} from 'lit-html';
+import { litSearchTemplate, litListTemplate, litDetailTemplate } from './templates';
+// import {html, render} from 'lit-html';
+import { html, render } from 'lit-html/lib/lit-extended'
 
 export default class LitView {
     
@@ -14,12 +15,12 @@ export default class LitView {
     update({ data, state='', switchTemplate=true }) {
         this.data = data;
         if(switchTemplate) {
-            this.previous = this.current;
             if(state === '') {
                 this.currentTemplate = litSearchTemplate;
             }else if( state === 'list') {
                 this.currentTemplate = litListTemplate;
             }else if(state === 'detail') {
+                this.currentTemplate = litDetailTemplate;
             }else {
                 console.log('no view state match');
             }
@@ -28,17 +29,7 @@ export default class LitView {
     }
 
     render() {
-        if(this.previous) {
-            this.previous.removeListeners.call(this);
-        }
-        // A lit-html template uses the `html` template tag:
-        // let sayHello = (name) => html`<h1>Hello ${name}</h1>`;
-        // let sayHello = (name) => html`${searchTemplate(this.data)}`;
-
-        // It's rendered with the `render()` function:
-        render(this.currentTemplate(this.data), this.parentEl);
-        // this.parentEl.innerHTML = this.current.template(this.data);
-        // this.current.addListeners.call(this);
+        render(this.currentTemplate(this.data, this.emitter), this.parentEl);
     }
     
 }

@@ -1,6 +1,6 @@
 import EventEmitter from 'eventemitter3';
 import './view.scss'; 
-import { searchTemplate, listTemplate } from './templates';
+import { searchTemplate, listTemplate, detailTemplate } from './templates';
 
 export default class View {
     
@@ -48,9 +48,15 @@ const screens = {
             const moreBtn = this.parentEl.querySelector('#moreBtn');
             moreBtn.addEventListener('click', (e)=> {
                 this.emitter.emit('FETCH_APPEND');
-            })
+                // e.preventDefault();
+            });
         },
         removeListeners(){},
         template: listTemplate
+    },
+    detail: {
+        addListeners(){},
+        removeListeners(){},
+        template: detailTemplate
     }
 };
