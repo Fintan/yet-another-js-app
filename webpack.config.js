@@ -36,7 +36,14 @@ module.exports = {
                         minimize: true
                     }
                 }],
-            }
+            },
+            {
+                 test: /\.js$/,
+                 loader: 'babel-loader',
+                 query: {
+                     presets: ['es2015']
+                 }
+             }
         ]
    }
 };
