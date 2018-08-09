@@ -1,3 +1,4 @@
+import { html } from 'lit-html';
 
 export const searchTemplate = data => `
     <div class='search-view'>
@@ -32,4 +33,23 @@ export const detailTemplate = item => `
             <img src="${item.images.downsized.url}" alt="${item.title}">
         </figure>
     </div>
+`;
+
+
+export const litSearchTemplate = data => html`
+    <div class='search-view'>
+        <a href="./#list">Search for Avengers..</a>
+    </div>
+`;
+
+export const litListTemplate = data => html`
+    <div class='list-view'>
+        <div>Images:</div>
+        <div class="thumbs">
+            ${data.map(item=> {
+                return thumbnailTemplate(item);
+            }).join('')}
+        </div>
+    </div>
+    <a id="moreBtn" href="#">More..</a>
 `;
