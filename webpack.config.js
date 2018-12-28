@@ -9,7 +9,7 @@ module.exports = {
         })
     ],
     output: {
-        filename: 'bundle-[hash:6].js',
+        filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
     devtool: 'inline-source-map',
@@ -40,6 +40,11 @@ module.exports = {
                         minimize: true
                     }
                 }],
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader'
             }
         ]
    }
