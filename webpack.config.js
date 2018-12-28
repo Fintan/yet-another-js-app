@@ -12,6 +12,10 @@ module.exports = {
         filename: 'bundle-[hash:6].js',
         path: path.resolve(__dirname, 'dist')
     },
+    devtool: 'inline-source-map',
+    devServer: {
+        contentBase: path.join(__dirname, 'dist')
+    },
     module: {
         rules: [
             {

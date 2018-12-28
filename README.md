@@ -2,20 +2,20 @@
 
 Vanilla MVC Javascript App
 
-# install
+# Install
 
 ```
 npm install
 ```
 
-# build
+# Build
 
 ```
 npm start
 ```
 
 
-# server
+# Development server
 
 ```
 npm run server
